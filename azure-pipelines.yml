@@ -21,14 +21,12 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-
 - task: SonarQubePrepare@4
   inputs:
-    SonarQube: 'sonar connection'
+    SonarQube: 'sonar'
     scannerMode: 'MSBuild'
-    projectKey: 'pass'
-    projectName: 'prj1'
-
+    projectKey: 'Myshuttle'
+    projectName: 'Myshuttle'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -43,7 +41,7 @@ steps:
 - task: SonarQubeAnalyze@4
 - task: sonar-buildbreaker@8
   inputs:
-    SonarQube: 'sonar connection'
+    SonarQube: 'sonar'
 
 - task: SonarQubePublish@4
   inputs:
